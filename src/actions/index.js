@@ -7,13 +7,10 @@ export const fetchPosts = () => {
 
     // redux-thunk -> middleware to help us make requests from action creators
 
-    return function (dispatch, getState) {
-        const promise = jsonplaceholder.get('/posts');
+    return async (dispatch) => {
+        const response = await jsonplaceholder.get('/posts');
 
-        return {
-            type: 'FETCH_POSTS',
-            payload: promise
-        }
+        dispatch({ type: 'FETCH_POSTS', payload: response })
     }
 
 }
