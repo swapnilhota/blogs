@@ -27,3 +27,5 @@ const _fetchUser = _.memoize(async (id, dispatch) => {
 
     dispatch({ type: 'FETCH_USER', payload: response.data })
 });
+
+//using _.memoize to prevent redundant api calls
