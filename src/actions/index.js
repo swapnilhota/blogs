@@ -1,5 +1,11 @@
 import _ from 'lodash';
 import jsonPlaceholder from '../apis/jsonPlaceholder';
+
+
+export const fetchPostsAndUsers = () => async (dispatch) => {
+    dispatch(fetchPosts());
+};
+
 export const fetchPosts = () => {
 
     //need to use redux-thunk for async actions inside action creators
@@ -22,11 +28,6 @@ export const fetchUser = (id) => {
     }
 };
 
-/*const _fetchUser = _.memoize(async (id, dispatch) => {
-    const response = await jsonplaceholder.get(`/users/${id}`);
-
-    dispatch({ type: 'FETCH_USER', payload: response.data })
-});*/
 
 /*const _fetchUser = _.memoize(async (id, dispatch) => {
     const response = await jsonplaceholder.get(`/users/${id}`);
